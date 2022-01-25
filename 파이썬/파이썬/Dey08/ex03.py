@@ -1,0 +1,29 @@
+'''
+    다중반환
+    :파이썬애서는 하나의 반환갑도처리할 수 있고,
+    여러 개의 반환갑도 처리할수있다.
+    
+    def 함수명 (매개변수):
+        실행문
+        실행문
+        return (값1),(값2),(값3),(값4),....
+'''
+
+
+
+def calculate(*args):
+    result1 = sum(args)
+    result2 = sum(args) / len(args)
+    result3 = max(args)
+    result4 = min(args)
+    return result1 ,result2 ,result3 ,result4
+
+a,b,c,d = calculate(1,2,3,4,5)
+result = calculate(1,2,3,4,5)
+
+print ('a: {}'.format(a))
+print ('b: {}'.format(b))
+print ('c: {}'.format(c))
+print ('d: {}'.format(d))
+
+print('result : {}'.format(result))
