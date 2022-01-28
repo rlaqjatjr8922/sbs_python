@@ -2,10 +2,14 @@
 import time as a 
 
 
-for i in range(9999999999999):
+
+while True:
+
     
+    path = '파이썬/파이썬/애습/'
+    file = open (path + '현재시간.txt','wt',encoding='UTF-8')
+    a.sleep(1)
     s = a.strftime('%y/%m/%d (%a) %H:%M:%S')
-    print('str() : {}'.format(s) )
-    i = i+100
-    if i == -100:
-        break
+    file.write(str(s) )
+    print ('q')
+    

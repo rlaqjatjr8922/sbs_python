@@ -1,7 +1,7 @@
 
 import time
 #저장경로
-path = 'C:/수업/SBS-py/sbs_python/파이썬/파이썬/Dey10/'
+path = 'C:/Users/pc/Desktop/새 폴더 (5)/'
     
 today =time.strftime('%y-%m-%d')
 
