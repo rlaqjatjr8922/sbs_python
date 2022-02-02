@@ -7,5 +7,5 @@ eng_dict = {
 
 for Word in eng_dict:
     print('{} 의 뜻 : {}'.format(Word, eng_dict.get(Word)) )
-
+    print(Word)
 #딕서너리 .get(key) : key 에 해당하는 갑을 가저온다.
