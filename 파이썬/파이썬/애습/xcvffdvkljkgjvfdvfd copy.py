@@ -1,46 +1,14 @@
-from shutil import copyfile
 
-#file = open('C:/Users/pc/Desktop/코딩명단/' + '통합 문서1.csv','rb',encoding='UTF-8')
+qwe = 'C:/Users/pc/Desktop/코딩명단/123/'
 
-path = 'C:/Users/pc/Desktop/코딩명단/'
+with open (qwe,'rb')as s:
 
-def new_func(path):
-    file = open(path + '통합 문서1.csv','rb',encoding='UTF-8')
-    return file
+sdf = s.read(4)
 
-file = new_func(path)
+print( str)
 
-fil = path + '통합 문서1.csv'
-
-while True:
-    str = file.read()
-    print('#{}',str)
-
-
-with open (fil,'rb')as s:
-    str = s.read(550)
-    print(str)
-
-
-
-
-name = [] * 100
-
-
-
-for i in range(0 ,100  ):
-    name[i] = input('asd')
- 
-        
-
-
-    if i < 2:
-        print(i)
-
-
-
-
-
-    print('q')
-
-new_func()
+qw = 0
+while qw == '':
+    money = money - 300
+    i = i + 1
+    print('커피 {} 잔, 잔돈 {}'.format(i, money))
