@@ -1,6 +1,6 @@
 
 A = input("a :")
-b = input("b :")
+B = input("b :")
 
 #input 문자열로변환
 A = int(A)

@@ -31,7 +31,7 @@
 from shutil import copyfile
 
 
-p = 'C:/수업/SBS-py/sbs_python/파이썬/파이썬/Dey10/'
+p = 'C:/c언어&파이썬/파이썬/sbs_python/파이썬/파이썬/'
 f = p + 'helo.txt'
 c = p + 'helo(복사).txt'
 

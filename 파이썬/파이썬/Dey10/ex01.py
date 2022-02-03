@@ -3,7 +3,7 @@
     
     -택스트파일생성
 '''
-path = 'C:/수업/SBS-py/sbs_python/파이썬/파이썬/Dey10/'
+path = 'C:/c언어&파이썬/파이썬/sbs_python/파이썬/파이썬/'
     
 #파일 렬기 :open
 file = open (path + 'helo.txt','wt',encoding='UTF-8')
