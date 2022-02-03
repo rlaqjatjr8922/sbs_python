@@ -15,4 +15,4 @@ with open('test.csv','r',newline='') as file:
         print(line)
         
 #for str in line:
-#한문장씩 일기    
+#한문장씩 일기     
