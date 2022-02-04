@@ -17,6 +17,7 @@ import csv
 
 with open('test.csv','w') as file:
     #delimiter : 구분기호
+    #writerow(파일객채,delimiter='구분기호')
     csv_maker = csv.writer(file,delimiter=',')
     csv_maker.writerow(['학번', '이름','주소','전화번호'])
     csv_maker.writerow(['101', '김범석','번동','01048598922'])
