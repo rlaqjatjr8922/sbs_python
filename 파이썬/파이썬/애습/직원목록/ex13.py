@@ -23,7 +23,7 @@ with open('새 텍스트 문서.csv','r',newline='',encoding='korean') as file:
         print(qweqwewqewqewqewqe)
         p+=1
     
-    #name = [[[]*20]*7]*(p+1)
+    name = [[[]*20]*7]*(p+1)
     
     
     #일기
