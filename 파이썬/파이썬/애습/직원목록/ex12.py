@@ -10,7 +10,7 @@ i = 0
 q = 0
 qi = 0
 # reader (파일객채,delimiter=구분기호,quotechar= 문자열기호)
-with open('직원목록.csv','r',newline='',encoding='UTF-8') as file:
+with open('새 텍스트 문서.csv','r',newline='',encoding='korean') as file:
     csv_r = csv.reader(file,delimiter=',',quotechar='"')
     for line in csv_r:
         q = q + 1
