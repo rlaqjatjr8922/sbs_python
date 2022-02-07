@@ -58,7 +58,9 @@ import sys
 # 사람
 class Person:
     # 이름, 전화번호, 주소
-    # 생성자 : 객체가 생성될 때, 실행되는 메소드
+    # 생성자(__init__) : 객체가 생성될 때, 실행되는 메소드
+    #self : 자기자신을 가리키는 키워드
+    #ex)    self.변수
     def __init__(self, name, phone, addr):
         self.name = name
         self.phone = phone
