@@ -19,8 +19,12 @@ with open('새 텍스트 문서.csv','r',newline='',encoding='korean') as file:
     
     #줄수새기
     
+<<<<<<< HEAD
     
     name = [['']*7]*(qwe()+1)
+=======
+    name = [[[]*20]*7]*(p+1)
+>>>>>>> 638326f7ae09cf501918ef7609a54bc4fde11771
     
     
     #일기
