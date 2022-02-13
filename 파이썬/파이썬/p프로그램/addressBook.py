@@ -63,7 +63,7 @@ class Person:
         self.addr = addr
         
     def info(self):
-        print('{}, {}, {}'.format(self.name, self.phone, self.addr))
+        print('{}1 {}, {}'.format(self.name, self.phone, self.addr))
         
 
 # 주소록
@@ -236,5 +236,5 @@ my_app.run()
 #검색하기기는
 def search(self):
     #만들기
-
+    print("1")
 

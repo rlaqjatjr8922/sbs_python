@@ -1,5 +1,5 @@
-from os import name
-import secure as q
+#from os import name
+#import secure as q
 from secure import *
 
 name = '김범석'
