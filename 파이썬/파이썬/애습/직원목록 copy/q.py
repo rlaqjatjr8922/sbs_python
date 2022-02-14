@@ -8,12 +8,13 @@ class pi:
     def __init__(self):
         
         self.name = []
+        self.tod = []
         self.wjs = []
         self.wn = []
         self.dlq = []
         self.q = 0
         q0 = 0
-        with open('새 텍스트 문서 - 복사본.csv','r',newline='') as file:
+        with open('명단.csv','r',encoding='korean',newline='') as file:
             csv_r = csv.reader(file,delimiter=',',quotechar='"')
             for q1 in csv_r:
                 self.q = self.q + 1
@@ -22,15 +23,19 @@ class pi:
                     if q0 == 0:
                         self.name.append(q2)
                         print(q0)
+                    if q0 == 4:
+                        self.tod.append(q2)
+                        print(q0)
                     if q0 == 1:
                         self.wjs.append(q2)
                         print(q0)
-                    if q0 == 2:
+                    if q0 == 3:
                         self.wn.append(q2)
                         print(q0)
-                    if q0 == 3:
+                    if q0 == 4:
                         self.dlq.append(q2)
                         print(q0)
+                    
                         
                     q0 = q0+1
                 
@@ -44,18 +49,21 @@ class pi:
         print("                              ")
         print("0.종료                        ")
         print("1.추가                        ")
-        print("2.수정                        ")
-        print("3.검색                        ")
+        print("2.삭재                        ") #&퇘사
+        print("3.수정                        ")
+        print("4.검색                        ")
+        print("5.전채출력                    ")
         print("                              ")
         print("******************************")
         eoekq = input("")   
         eoekq = int(eoekq)   
 
-        if eoekq == 0: self.whdfy()         # 종료 1
+        if eoekq == 0: self.whdfy()      # 종료 1
         if eoekq == 1: self.insert()     # 추가 1
-        if eoekq == 2: self.update()     # 수정
-        if eoekq == 3: self.search()     # 검색
-        if eoekq == 4: self.print_all()  # 전체출력5
+        if eoekq == 2: self.delete()     # 삭재 1
+        if eoekq == 3: self.update()     # 수정
+        if eoekq == 4: self.search()     # 검색
+        if eoekq == 5: self.print_all()  # 전체출력5
         if eoekq < 0:
             if eoekq > 5:
                 print('매뉴번호 박임 장난ㄴㄴㄴ')
@@ -63,55 +71,145 @@ class pi:
     def whdfy(self):
         
         # reader (파일객채,delimiter=구분기호,quotechar= 문자열기호)
-        with open('명단','w',newline='') as file:
-            csv_r = csv.reader(file,delimiter=',',quotechar='"')
+        with open('명단.csv','w',newline='') as file:
+            csv.writer(file,delimiter=',')
+            #csv_r = csv.reader(file,delimiter=',',quotechar='"')
+            csv_r = csv.writer(file,delimiter=',')
             
             for q1 in range(0,self.q):
                     
-                csv_maker.writerow([self.name[self.q]   , self.wjs[self.q]  ,self.wn[self.q]    ,self.dlq[self.q]   ])
+                csv_r.writerow([self.name[q1]   ,self.tod[q1]   , self.wjs[q1]  ,self.wn[q1]    ,self.dlq[q1]   ])
                     
         print("종료")
         sys.exit()
     
     def insert(self):
+        print("추가할 정보")
         q1 = input("이름:")
-        q2 = input("전화번호:")
-        q3 = input("주소:")
-        q4 = input("입사날자:")
+        q2 = input("생년월일:")
+        q3 = input("전화번호:")
+        q4 = input("주소:")
+        q5 = input("입사날자:")
         if q1:
             if q2:
                 if q3:
                     if q4:
-                        self.name.append(q1)
-                        self.wjs.append(q2)
-                        self.wn.append(q3)
-                        self.dlq.append(q4)
-                        print("\n")
-                        print("이름:{}".format(self.name[self.q]))
-                        print("전화번호:{}".format(self.wjs[self.q]))
-                        print("주소:{}".format(self.wn[self.q]))
-                        print("입사일:{}".format(self.dlq[self.q]))
-                        self.q = self.q + 1
-                        return
+                        if q5:
+                            self.name.append(q1)
+                            self.tod.append(q2)
+                            self.wjs.append(q3)
+                            self.wn.append(q4)
+                            self.dlq.append(q5)
+                            print("\n")
+                            print("이름:{}".format(self.name[self.q]))
+                            print("생년월일:{}".format(self.tod[self.q]))
+                            print("전화번호:{}".format(self.wjs[self.q]))
+                            print("주소:{}".format(self.wn[self.q]))
+                            print("입사일:{}".format(self.dlq[self.q]))
+                            self.q = self.q + 1
+                            self.run()
+                            return
                         
         print("불완전함")
-        
-        
+        self.run()
+        return
+    
     def delete(self):
-        print("******************************")
-        print("                              ")
-        print("1.이름                        ")
-        print("2.주소                        ")
-        print("                              ")
-        print("******************************")
+        q1 =input("삭재할이름:")
+        print(q1,end='')
+        q2 = input("을 삭재할까요?(o/x)")
+        if q2 == "o":
+            q=0
+            for i in self.name:
+                
+                if i == q1:
+                    
+                    
+                    self.name.pop(q)
+                    self.tod.pop(q)
+                    self.wjs.pop(q)
+                    self.wn.pop(q)
+                    self.dlq.pop(q)
+                    
+                    self.q = self.q - 1
+                    self.run()
+                    return
+                q = q + 1
+            print("찻는 선생님의 이름이 없음")
+            self.run()
         
-        q1 =input("검색:")
-        with open('새 텍스트 문서 - 복사본.csv','r',newline='') as file:
-            csv_r = csv.reader(file,delimiter=',',quotechar='"')
-            for q2 in csv_r:
-                i = i + 1
-                if q1 == q2:
-                    print(i,"번째줄임니다")
+            return
+        else:
+            print("삭재를 치소함")
+            self.run()
+            
+            
+            
+        
+    
+    def update(self):
+
+        q=0
+        q3 = input("수정할 이름:")
+        for i in self.name:
+            print("a")
+            if i == q3:
+                
+                q4 = input("이름:")
+                if q4:
+                    self.name[q] = q4
+                    print("qw")
+                
+                q4 = input("생년월일:")
+                if q4:   
+                    self.wjs[q] = q4
+                    print("qw")
+                q4 = input("연락처:")
+                if q4:   
+                    self.wn[q] = q4
+                    print("qw")
+                q4 = input("주소:")
+                if q4:
+                    self.dlq[q] = q4
+                    print("qw")
+                
+                self.run()
+                return
+                q = q + 1
+        print("찻는 선생님의 이름이 없음")
+        self.run()
+                
+    
+    def search(self):
+        print("*********************************")
+        print("                                 ")
+        print("1.이름                           ")
+        print("2.주소                           ")
+        print("                                 ")
+        print("*********************************")
+        q1 =input("")
+        
+        if q1 == "1":
+            q=0
+            q3 = input("이름:")
+            for i in self.name:
+                
+                if i == q3:
+                    
+                    print(self.name[q])
+                    print(self.tod[q])
+                    print(self.wjs[q])
+                    print(self.wn[q])
+                    print(self.dlq[q])
+                        
+                    
+                    self.run()
+                    return
+                q = q + 1
+            print("찻는 선생님의 이름이 없음")
+            self.run()
+        
+            return
 
             
             
