@@ -172,10 +172,11 @@ class pi:
                 if q4:
                     self.dlq[q] = q4
                     print("qw")
+                    print(q)
                 
                 self.run()
                 return
-                q = q + 1
+            q = q + 1
         print("찻는 선생님의 이름이 없음")
         self.run()
                 
@@ -211,6 +212,36 @@ class pi:
         
             return
 
+            
+    def print_all(self):
+        
+        aq = input("정수")
+        aq = int(aq)
+        if aq == 1:
+            
+            for w in range(0,self.q):
+                print(self.name)
+                self.run()
+        if aq == 2:
+            
+            for w in range(0,self.q):
+                print(self.tod)
+                self.run()
+        if aq == 3:
+            
+            for w in range(0,self.q):
+                print(self.wjs)
+                self.run()
+        if aq == 4:
+            
+            for w in range(0,self.q):
+                print(self.wn)
+                self.run()
+        if aq == 5:
+            
+            for w in range(0,self.q):
+                print(self.dlq)
+                self.run()
             
             
             
