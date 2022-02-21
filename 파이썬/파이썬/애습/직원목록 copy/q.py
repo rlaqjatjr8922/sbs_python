@@ -1,7 +1,7 @@
 #append, insert
 import csv
 import sys
-
+import time
     
     
 class pi:
@@ -322,8 +322,6 @@ class pi:
 
 
 
-applrqw = pi()
-
         
 '''
 /*
@@ -385,3 +383,155 @@ def whdfy():
 #한문장씩 일기     
     print("1")
     */'''
+    
+    
+    
+    
+    
+    
+class dy:
+    def __init__(self):
+        
+        
+        #이름
+        self.dl = []
+        #성별
+        self.tjd = []
+        #생일
+        self.tod = []
+        #전화
+        self.wjs = []
+        #주소
+        self.wn = []
+        #비고
+        self.ql = []
+        #전화온 날자
+        self.wjs1 = []
+        #평가
+        self.vud = []
+        
+        self.q = 0
+        q0 = 0
+        with open('요양사 리스트.csv','r',encoding='korean',newline='') as file:
+            csv_r = csv.reader(file,delimiter=',',quotechar='"')
+            for q1 in csv_r:
+                self.q = self.q + 1
+                q0 =0
+                for q2 in q1:
+                    if q0 == 0:
+                        self.dl.append(q2)
+                        #print(q0)
+                    if q0 == 1:
+                        self.tjd.append(q2)
+                        #print(q0)
+                    if q0 == 2:
+                        self.tod.append(q2)
+                        #print(q0)
+                    if q0 == 3:
+                        self.wjs.append(q2)
+                        #print(q0)
+                    if q0 == 4:
+                        self.wn.append(q2)
+                        #print(q0)                    if q0 == 1:
+                        self.tod.append(q2)
+                        #print(q0)
+                    if q0 == 5:
+                        self.ql.append(q2)
+                        #print(q0)
+                    if q0 == 6:
+                        self.wjs1.append(q2)
+                        #print(q0)
+                    if q0 == 7:
+                        self.vud.append(q2)
+                        #print(q0)
+                    
+                        
+                    q0 = q0+1
+                
+                
+        #self.q = self.q - 1        
+        self.run()
+    def run(self):
+        print("******************************")
+        print("                              ")
+        print("0.죵료                        ")
+        print("1.검색                        ")  
+        print("2.수정                        ")      
+        print("3.삭제                        ")      
+        print("4.추가                        ")      
+        print("5.전채출력                    ")      
+        print("                              ")      
+        print("******************************")
+        i = int(input(""))
+        if i ==  0: self.Awhd()
+        if i ==  1: self.Arja()
+        if i ==  2: self.Atn()
+        if i ==  3: self.Atkr()
+        if i ==  4: self.Acn()
+        if i ==  5: self.Awjs()
+
+        
+        if i > 5:
+            if i < 0 :
+                print("ㅁㄴㅂㅎㅈㄴ ㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴ")
+        
+        
+        
+        
+    def Awhd(self):
+        for i in range(0,self.q):
+            
+            #print(i,"번째줄     :",q1[i],q2[i],q3[i],q4[i],q5[i])
+            with open('요양사 리스트.csv','w',newline='') as file:
+                csv.writer(file,delimiter=',')
+                #csv_r = csv.reader(file,delimiter=',',quotechar='"')
+                csv_r = csv.writer(file,delimiter=',')
+            
+                for w in range(0,self.q):
+                    
+                    csv_r.writerow([    self.dl,   self.tjd[w],   self.tod[w],  self.wjs[w],  self.wn[w],   self.ql[w]     ,self.wjs1[w],    self.vud[w]])            
+        print("종료")
+        
+    def Arja(self):
+        
+        print("******************************")
+        print("                              ")
+        print("1.지역별                      ")
+        print("2.성별                        ")
+        print("3.이름                        ")
+        print("4.전화번호                    ")
+        print("5.평점입주                    ")
+        print("6.입주                        ")
+        print("                              ")
+        print("******************************")
+        i = int(input(""))
+        if i ==  0: 
+            
+        if i ==  1: 
+            
+        if i ==  2: 
+            
+        if i ==  3: 
+            
+        if i ==  4: 
+            
+        if i ==  5: 
+            
+        if i ==  6: 
+            
+               
+        if i > 5:
+            if i < 0 :
+                print("ㅁㄴㅂㅎㅈㄴ ㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴ")
+ 
+
+    
+    
+    
+    
+    
+        
+if "1" == input("qqe"):
+    applrqw = pi()
+else:
+    applrqw = dy()        
