@@ -651,11 +651,14 @@ class dy:
             
         if i ==  6: 
             print("6")
-               
-        if i > 5:
-            if i < 0 :
-                print("ㅁㄴㅂㅎㅈㄴ ㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴ")
-
+        print("s")       
+        if i > 5 or i <= 0:
+            print("a")
+            
+            print("ㅁㄴㅂㅎㅈㄴ ㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴ")
+            self.run()
+            return
+                
 
     def Awjs(self):
         print("******************************")
