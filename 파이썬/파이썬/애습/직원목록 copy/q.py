@@ -433,8 +433,7 @@ class dy:
                     if q0 == 4:
                         self.wn.append(q2)
                         #print(q0)                    if q0 == 1:
-                        self.tod.append(q2)
-                        #print(q0)
+
                     if q0 == 5:
                         self.ql.append(q2)
                         #print(q0)
@@ -505,8 +504,8 @@ class dy:
         print("                              ")
         print("******************************")
 
-        i = int(input(""))
-        
+        i = input("")
+        i = int (i)
             
         if i ==  1:
 
@@ -632,7 +631,7 @@ class dy:
                     for a1 in range(0,len(self.wn)-len(q3)+1):
                         #print(self.wn[a][a1:a1+len(q3)])
                         if self.wn[q1][a1:a1+len(q3)] == q3:
-                            print(q1,"줄\n")
+                            print(q1+1,"줄\n")
                             print("이름",self.dl[q1])
                             print("성별",self.tjd[q1])
                             print("생일",self.tod[q1])
@@ -640,9 +639,9 @@ class dy:
                             print("주소",self.wn[q1])
                             print("비고",self.ql[q1])
                             print("전화온날자",self.wjs1[q1])
-                            print("평가",self.vud[q1])
+                            #print("평가",self.vud[q1])
                             print("\n\n\n\n")
-                            csv_r.writerow([   self.dl[q1],   self.tjd[q1],   self.tod[q1],  self.wjs[q1],  self.wn[q1],   self.ql[q1]     ,self.wjs1[q1],    self.vud[q1]])
+                            csv_r.writerow([   self.dl[q1],   self.tjd[q1],   self.tod[q1],  self.wjs[q1],  self.wn[q1],   self.ql[q1]     ,self.wjs1[q1],    ])#self.vud[q1]
                             z = z+1
             print(z,"권의 검색 결과가 있슴니다")
             self.run()
@@ -668,7 +667,7 @@ class dy:
         print("3.생일                        ")
         print("4.전화번호                    ")
         print("5.평점                        ")
-        print("6.면접 날자                   ")
+        print("6.주소                        ")
 #        print("7.입주                        ")
         print("                              ")
         print("******************************")
@@ -695,9 +694,9 @@ class dy:
             for i in range(0,self.q):
                 print(self.vud[i])
             
-    #        if i ==  6: 
-    #            for i in range(0,self.q):
-    #                print(self.wn[i])
+        if i ==  6: 
+            for i in range(0,self.q):
+                print(self.wn[i])
             
                
         if i > 5:
