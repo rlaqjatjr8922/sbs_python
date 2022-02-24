@@ -522,7 +522,7 @@ class dy:
                     print("주소",self.wn[q])
                     print("비고",self.ql[q])
                     print("전화온날자",self.wjs1[q])
-                    print("평가",self.vud[q])
+                    #print("평가",self.vud[q])
                     print("******************************")
                     
                     self.run()
@@ -556,7 +556,7 @@ class dy:
                         print("주소",self.wn[q1])
                         print("비고",self.ql[q1])
                         print("전화온날자",self.wjs1[q1])
-                        print("평가",self.vud[q1])
+                        #print("평가",self.vud[q1])
                         print("******************************")
                         q = q+1
                     q1 = q1 +1
@@ -578,7 +578,7 @@ class dy:
                         print("주소",self.wn[q1])
                         print("비고",self.ql[q1])
                         print("전화온날자",self.wjs1[q1])
-                        print("평가",self.vud[q1])
+                        #print("평가",self.vud[q1])
                         print("******************************")
                         q = q+1
                     q1 = q1 +1
@@ -606,7 +606,7 @@ class dy:
                     print("주소",self.wn[q])
                     print("비고",self.ql[q])
                     print("전화온날자",self.wjs1[q])
-                    print("평가",self.vud[q])
+                    #print("평가",self.vud[q])
                     print("******************************")
 
                     self.run()
