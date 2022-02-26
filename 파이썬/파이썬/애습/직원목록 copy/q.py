@@ -411,6 +411,7 @@ class dy:
         self.vud = []
         
         self.q = 0
+        self.Pvmfhrmfoa = 0
         q0 = 0
         with open('요양사 리스트.csv','r',encoding='korean',newline='') as file:
             csv_r = csv.reader(file,delimiter=',',quotechar='"')
@@ -418,8 +419,13 @@ class dy:
                 self.q = self.q + 1
                 q0 =0
                 for q2 in q1:
+                    #if not q2:
+                    if "비어있음" ==  q2:
+                        q2 = ""
                     if q0 == 0:
+                    
                         self.dl.append(q2)
+                        
                         #print(q0)
                     if q0 == 1:
                         self.tjd.append(q2)
@@ -443,12 +449,14 @@ class dy:
                     if q0 == 7:
                         self.vud.append(q2)
                         #print(q0)
-                    
+                    #print(q0)
+            
                         
                     q0 = q0+1
                 
                 
-        #self.q = self.q - 1        
+        #self.q = self.q - 1 
+        #print(self.vud)       
         self.run()
     def run(self):
         print("******************************")
@@ -506,130 +514,134 @@ class dy:
 
         i = input("")
         i = int (i)
-            
-        if i ==  1:
+        with open('검색결과.csv','w',newline='') as file:
+            csv.writer(file,delimiter=',')
+            #csv_r = csv.reader(file,delimiter=',',quotechar='"')
+            csv_r = csv.writer(file,delimiter=',')            
+            if i ==  1:
 
-            q=0
-            q3 = input("검색할 이름:")
-            for a in self.dl:
-                print("a")
-                if a == q3:
-                    print("******************************")
-                    print("이름",self.dl[q])
-                    print("성별",self.tjd[q])
-                    print("생일",self.tod[q])
-                    print("전화번호",self.wjs[q])
-                    print("주소",self.wn[q])
-                    print("비고",self.ql[q])
-                    print("전화온날자",self.wjs1[q])
-                    print("평가",self.vud[q])
-                    print("******************************")
-                    
-                    self.run()
-                    return
-                    
-                
-                q = q + 1
-            print("찻는 선생님의 이름이 없음")
-            self.run()
-            
-        if i ==  2: 
-            print("******************************")
-            print("                              ")
-            print("1.여                          ")
-            print("2.남                          ")
-            print("                              ")
-            print("******************************")
-            i = int(input(""))
-            if i == 2:
                 q=0
-                q1=0
-                q3 = "남"
-                for v in self.tjd:
-                    #print("a")
-                    if v == q3:
+                q3 = input("검색할 이름:")
+                for a in self.dl:
+                    print("a")
+                    if a == q3:
                         print("******************************")
-                        print("이름",self.dl[q1])
-                        print("성별",self.tjd[q1])
-                        print("생일",self.tod[q1])
-                        print("전화번호",self.wjs[q1])
-                        print("주소",self.wn[q1])
-                        print("비고",self.ql[q1])
-                        print("전화온날자",self.wjs1[q1])
-                        print("평가",self.vud[q1])
+                        print("이름",self.dl[q])
+                        print("성별",self.tjd[q])
+                        print("생일",self.tod[q])
+                        print("전화번호",self.wjs[q])
+                        print("주소",self.wn[q])
+                        print("비고",self.ql[q])
+                        print("전화온날자",self.wjs1[q])
+                        print("평가",self.vud[q])
                         print("******************************")
-                        q = q+1
-                    q1 = q1 +1
-                print(q,"개의 검색결과가 있슴니다.")
-                self.run()
-                return
-            else:
-                q=0
-                q1=0
-                q3 = "여"
-                for v in self.tjd:
-                    #print("a")
-                    if v == q3:
-                        print("******************************")
-                        print("이름",self.dl[q1])
-                        print("성별",self.tjd[q1])
-                        print("생일",self.tod[q1])
-                        print("전화번호",self.wjs[q1])
-                        print("주소",self.wn[q1])
-                        print("비고",self.ql[q1])
-                        print("전화온날자",self.wjs1[q1])
-                        print("평가",self.vud[q1])
-                        print("******************************")
-                        q = q+1
-                    q1 = q1 +1
-                print(q,"개의 검색결과가 있슴니다.")
-                self.run()
-                return
+                        csv_r.writerow([   self.dl[q],   self.tjd[q],   self.tod[q],  self.wjs[q],  self.wn[q],   self.ql[q]     ,self.wjs1[q],    self.vud[q]])
+                        self.Pvmfhrmfoa = q
+                        self.run()
+                        return
+                    
                 
-                
-
-                
-            
-        if i ==  3: 
-
-            q=0
-            q3 = input("검색할 전화번호:")
-            for i in self.wjs:
-                print("a")
-                if i == q3:
                     q = q + 1
-                    print("******************************")
-                    print("이름",self.dl[q])
-                    print("성별",self.tjd[q])
-                    print("생일",self.tod[q])
-                    print("전화번호",self.wjs[q])
-                    print("주소",self.wn[q])
-                    print("비고",self.ql[q])
-                    print("전화온날자",self.wjs1[q])
-                    print("평가",self.vud[q])
-                    print("******************************")
-
+                print("찻는 선생님의 이름이 없음")
+                self.run()
+            
+            if i ==  2: 
+                print("******************************")
+                print("                              ")
+                print("1.여                          ")
+                print("2.남                          ")
+                print("                              ")
+                print("******************************")
+                i = int(input(""))
+                if i == 2:
+                    q=0
+                    q1=0
+                    q3 = "남"
+                    for v in self.tjd:
+                        #print("a")
+                        if v == q3:
+                            print("******************************")
+                            print("이름",self.dl[q1])
+                            print("성별",self.tjd[q1])
+                            print("생일",self.tod[q1])
+                            print("전화번호",self.wjs[q1])
+                            print("주소",self.wn[q1])
+                            print("비고",self.ql[q1])
+                            print("전화온날자",self.wjs1[q1])
+                            print("평가",self.vud[q1])
+                            print("******************************")
+                            csv_r.writerow([   self.dl[q1],   self.tjd[q1],   self.tod[q1],  self.wjs[q1],  self.wn[q1],   self.ql[q1]     ,self.wjs1[q1],    self.vud[q1]])
+                            q = q+1
+                        q1 = q1 +1
+                    print(q,"개의 검색결과가 있슴니다.")
                     self.run()
                     return
+                else:
+                    q=0
+                    q1=0
+                    q3 = "여"
+                    for v in self.tjd:
+                        #print("a")
+                        if v == q3:
+                            print("******************************")
+                            print("이름",self.dl[q1])
+                            print("성별",self.tjd[q1])
+                            print("생일",self.tod[q1])
+                            print("전화번호",self.wjs[q1])
+                            print("주소",self.wn[q1])
+                            print("비고",self.ql[q1])
+                            print("전화온날자",self.wjs1[q1])
+                            print("평가",self.vud[q1])
+                            print("******************************")
+                            csv_r.writerow([   self.dl[q1],   self.tjd[q1],   self.tod[q1],  self.wjs[q1],  self.wn[q1],   self.ql[q1]     ,self.wjs1[q1],    self.vud[q1]])
+                            q = q+1
+                        q1 = q1 +1
+                    print(q,"개의 검색결과가 있슴니다.")
+                    self.run()
+                    return
+                
+                
+
+                
+            
+            if i ==  3: 
+
+                q=0
+                q3 = input("검색할 전화번호:")
+                for i in self.wjs:
+                    print("a")
+                    if i == q3:
+                        q = q + 1
+                        print("******************************")
+                        print("이름",self.dl[q])
+                        print("성별",self.tjd[q])
+                        print("생일",self.tod[q])
+                        print("전화번호",self.wjs[q])
+                        print("주소",self.wn[q])
+                        print("비고",self.ql[q])
+                        print("전화온날자",self.wjs1[q])
+                        print("평가",self.vud[q])
+                        print("******************************")
+                        self.Pvmfhrmfoa = q
+                        csv_r.writerow([   self.dl[q],   self.tjd[q],   self.tod[q],  self.wjs[q],  self.wn[q],   self.ql[q]     ,self.wjs1[q],    self.vud[q]])
+                        self.run()
+                        return
                 q = q + 1
-            print("등록 돼지 안은전 화번호 임니다")        
-            self.run()
-            return    
-        #print("찻는 선생님의 이름이 없음")
+                print("등록 돼지 안은전 화번호 임니다")        
+                self.run()
+                return    
+            #print("찻는 선생님의 이름이 없음")
         
-        if i ==  4: 
-            aq = []
-            z = 0
-            q3 = input("주소:")
+            if i ==  4: 
+                aq = []
+                z = 0
+                q3 = input("주소:")
             #   len
-            with open('검색결과.csv','w',newline='') as file:
-                csv.writer(file,delimiter=',')
-                #csv_r = csv.reader(file,delimiter=',',quotechar='"')
-                csv_r = csv.writer(file,delimiter=',')
+            
                 for q1 in range(0,self.q):
                     #print("                            ",a)
                     for a1 in range(0,len(self.wn)-len(q3)+1):
-                        #print(self.wn[a][a1:a1+len(q3)])
+                    #print(self.wn[a][a1:a1+len(q3)])
                         if self.wn[q1][a1:a1+len(q3)] == q3:
                             print(q1+1,"줄\n")
                             print("이름",self.dl[q1])
@@ -641,22 +653,22 @@ class dy:
                             print("전화온날자",self.wjs1[q1])
                             #print("평가",self.vud[q1])
                             print("\n\n\n\n")
-                            csv_r.writerow([   self.dl[q1],   self.tjd[q1],   self.tod[q1],  self.wjs[q1],  self.wn[q1],   self.ql[q1]     ,self.wjs1[q1],    ])#self.vud[q1]
+                            csv_r.writerow([   self.dl[q1],   self.tjd[q1],   self.tod[q1],  self.wjs[q1],  self.wn[q1],   self.ql[q1]     ,self.wjs1[q1],    self.vud[q1]])#
                             z = z+1
-            print(z,"권의 검색 결과가 있슴니다")
-            self.run()
-        if i ==  5:
-            print("5")
+                print(z,"권의 검색 결과가 있슴니다")
+                self.run()
+            if i ==  5:
+                print("5")
             
-        if i ==  6: 
-            print("6")
-        print("s")       
-        if i > 5 or i <= 0:
-            print("a")
+            if i ==  6: 
+                print("6")
+                print("s")       
+            if i > 5 or i <= 0:
+                print("a")
             
-            print("ㅁㄴㅂㅎㅈㄴ ㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴ")
-            self.run()
-            return
+                print("ㅁㄴㅂㅎㅈㄴ ㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴ")
+                self.run()
+                return
                 
 
     def Awjs(self):
@@ -691,19 +703,166 @@ class dy:
                 print(self.wjs[i])
             
         if i ==  5:
-            for i in range(0,self.q):
-                print(self.vud[i])
+            #for i in range(0,self.q):
+                print(self.vud)
             
         if i ==  6: 
             for i in range(0,self.q):
                 print(self.wn[i])
+        
             
                
-        if i > 5:
-            if i < 0 :
-                print("ㅁㄴㅂㅎㅈㄴ ㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴ")        
+        
+        
+        #print("ㅁㄴㅂㅎㅈㄴ ㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴㄴ")        
         self.run()
+        return
     
+    def Atkr(self):
+        q1 =input("삭재할이름:")
+        print(q1,end='')
+        q2 = input("을 삭재할까요?(o/x)")
+        if q2 == "o":
+            q=0
+            for i in self.dl:
+                
+                if i == q1:
+                    
+                    
+                    self.dl.pop(q)
+                    self.tjd.pop(q)
+                    self.tod.pop(q)
+                    self.wjs.pop(q)
+                    self.wn.pop(q)
+                    self.ql.pop(q)
+                    self.wjs1.pop(q)
+                    
+                    self.q = self.q - 1
+                    self.run()
+                    return
+                q = q + 1
+            print("찻는 선생님의 이름이 없음")
+            self.run()
+        
+            return
+        else:
+            print("삭재를 치소함")
+            self.run()
+    
+    def Atn(self):
+
+        q=0
+        q3 = input("수정할 이름:")
+        if  not q3:
+                q3 = self.Pvmfhrmfoa
+                q4 = input("이름:")
+                if q4:
+                    self.dl[q] = q4
+                    print("qw")
+                
+                q4 = input("성별:")
+                if q4:   
+                    self.tjd[q] = q4
+                    print("qw")
+                q4 = input("생년월일:")
+                if q4:   
+                    self.tod[q] = q4
+                    print("qw")
+                q4 = input("전화번호:")
+                if q4:
+                    self.wjs[q] = q4
+                    print("qw")
+                    print(q)
+                q4 = input("주소:")
+                if q4:
+                    self.wn[q] = q4
+                    print("qw")
+                    print(q)
+                q4 = input("비고:")
+                if q4:
+                    self.ql[q] = q4
+                    print("qw")
+                    print(q)
+                q4 = input("평가:")
+                if q4:
+                    self.vud[q] = q4
+                    print("qw")
+                    print(q)
+                
+                self.run()
+                return
+            
+            
+        for i in self.dl:
+            print("a")
+            if i == q3:
+                
+                q4 = input("이름:")
+                if q4:
+                    self.dl[q] = q4
+                    print("qw")
+                
+                q4 = input("성별:")
+                if q4:   
+                    self.tjd[q] = q4
+                    print("qw")
+                q4 = input("생년월일:")
+                if q4:   
+                    self.tod[q] = q4
+                    print("qw")
+                q4 = input("전화번호:")
+                if q4:
+                    self.wjs[q] = q4
+                    print("qw")
+                    print(q)
+                q4 = input("주소:")
+                if q4:
+                    self.wn[q] = q4
+                    print("qw")
+                    print(q)
+                q4 = input("비고:")
+                if q4:
+                    self.ql[q] = q4
+                    print("qw")
+                    print(q)
+                q4 = input("평가:")
+                if q4:
+                    self.vud[q] = q4
+                    print("qw")
+                    print(q)
+                
+                self.run()
+                return
+            q = q + 1
+        print("찻는 선생님의 이름이 없음")
+        self.run()
+        
+    
+
+
+    def Acn(self):
+        print("추가할 정보")
+        q1 = input("이름:")
+        self.dl.append(q1)
+        q2 = input("성별:")
+        self.tjd.append(q2)
+        q3 = input("생년월일:")
+        self.tod.append(q3)
+        q4 = input("전화번호:")
+        self.wjs.append(q4)
+        q5 = input("주소:")                           
+        self.wn.append(q5)
+        q6 = input("비고:")
+        self.ql.append(q6)
+        q7 = input("입사날자:")
+        self.vud.append(q7)
+        q8 = input("평가:")
+        self.vud.append(q8)
+        print("\n\n\n\n추가돼었슴니다.")
+        
+        
+        self.run()
+        return    
     
     
     
