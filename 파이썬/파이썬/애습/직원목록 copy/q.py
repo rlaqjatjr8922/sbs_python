@@ -783,6 +783,11 @@ class dy:
                     self.ql[q] = q4
                     print("qw")
                     print(q)
+                q4 = input("전하온날자:")
+                if q4:
+                    self.wjs1[q] = q4
+                    print("qw")
+                    print(q)
                 q4 = input("평가:")
                 if q4:
                     self.vud[q] = q4
@@ -858,6 +863,8 @@ class dy:
         self.vud.append(q7)
         q8 = input("평가:")
         self.vud.append(q8)
+        
+        self.q = self.q + 1
         print("\n\n\n\n추가돼었슴니다.")
         
         
