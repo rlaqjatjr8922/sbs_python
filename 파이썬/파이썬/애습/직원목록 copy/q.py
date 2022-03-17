@@ -875,7 +875,8 @@ class dy:
     
     
         
-if "1" == input("qqe"):
+if "1" == input("1.기존글로자\n2.새로운선생님"):
     applrqw = pi()
 else:
-    applrqw = dy()        
+    applrqw = dy()      
+      
