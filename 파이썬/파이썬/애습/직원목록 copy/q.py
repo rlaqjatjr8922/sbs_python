@@ -610,8 +610,9 @@ class dy:
                 q3 = input("검색할 전화번호:")
                 for i in self.wjs:
                     print("a")
+                    q = q + 1
                     if i == q3:
-                        q = q + 1
+                        
                         print("******************************")
                         print("이름",self.dl[q])
                         print("성별",self.tjd[q])
@@ -626,7 +627,7 @@ class dy:
                         csv_r.writerow([   self.dl[q],   self.tjd[q],   self.tod[q],  self.wjs[q],  self.wn[q],   self.ql[q]     ,self.wjs1[q],    self.vud[q]])
                         self.run()
                         return
-                q = q + 1
+                
                 print("등록 돼지 안은전 화번호 임니다")        
                 self.run()
                 return    
