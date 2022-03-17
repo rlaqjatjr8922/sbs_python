@@ -860,7 +860,7 @@ class dy:
         q6 = input("비고:")
         self.ql.append(q6)
         q7 = input("입사날자:")
-        self.vud.append(q7)
+        self.wjs1.append(q7)
         q8 = input("평가:")
         self.vud.append(q8)
         
